@@ -53,7 +53,7 @@
             line-height: 30px;
         }
         .pricing {
-            padding: 20px 30px;
+            padding: 20px 23px;
             width: 100%;
             max-width: 132px;
         }
@@ -99,7 +99,7 @@
         <section>
             <div class="container">
                 <div id="card-container" class="row g-4">
-                    <div class="col-md-6 col-lg-4">
+                    <!-- <div class="col-md-6 col-lg-4">
                         <div class="card p-4">
                             <img src="./assets/images/Rectangle 23.png" class="card-img-top" alt="...">
                             <div class="card-body px-0">
@@ -125,7 +125,7 @@
                             </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="mt-4 text-center">
                     <button class="btn btn-danger py-2 px-4">See More</button>
@@ -136,7 +136,7 @@
             <!-- Modal Section -->
         <section>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#universe-details">
+            <button type="button" class="btn btn-primary" >
                 Launch static backdrop modal
             </button>
             
@@ -150,27 +150,23 @@
                         <div class="row g-6">
                             <div class="col-12 col-md-6 d-flex align-items-stretch">
                                 <div class="modal-ui border rounded-4">
-                                    <h3 class="pb-3">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h3>
+                                    <h3 id="card-description" class="pb-3">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h3>
                                 <div class="d-flex align-items-center justify-content-center flex-wrap gap-3">
-                                    <p class="pricing bg-white rounded-4 fs-6 text-success fw-bold text-center"><span>$10</span>/ month basic</p>
-                                    <p class="pricing bg-white rounded-4 fs-6 text-warning fw-bold text-center"><span>$10</span>/ month pro</p>
-                                    <p class="pricing bg-white rounded-4 fs-6 text-danger fw-bold text-center">contact us Enterprise</p>
+                                    <p class="pricing bg-white rounded-4 fs-6 text-success fw-bold text-center"><span id="plan-1"></span> basic</p>
+                                    <p class="pricing bg-white rounded-4 fs-6 text-warning fw-bold text-center"><span id="plan-2"></span> pro</p>
+                                    <p class="pricing bg-white rounded-4 fs-6 text-danger fw-bold text-center"><span id="plan-3"></span> Enterprise</p>
                                 </div>
                                 <div class="d-flex md-justify-content-center gap-4 flex-wrap pt-3">
                                     <div class="feature">
                                         <h3 class="mb-3">Features</h3>
-                                        <ul>
-                                            <li>Customizable responses</li>
-                                            <li>Multilingual support</li>
-                                            <li>Seamless integration</li>
+                                        <ul id="features-container">
+                                            
                                         </ul>
                                     </div>
                                     <div class="feature">
                                         <h3 class="mb-3">Integrations</h3>
-                                        <ul>
-                                            <li>FB Messenger</li>
-                                            <li>Slack</li>
-                                            <li>Telegram</li>
+                                        <ul id="integrations">
+
                                         </ul>
                                     </div>
                                 </div>
@@ -180,12 +176,12 @@
                             <div class="col-12 col-md-6 d-flex align-items-stretch">
                                 <div class="modal-ui second-modal border rounded-4">
                                     <div class="position-relative">
-                                        <img class="img-fluid w-100 rounded-4" src="./assets/images/Rectangle 15.png" alt="">
-                                        <p class="accuracy mt-2 me-2 position-absolute top-0 end-0"><span>94</span>% accuracy</p>
+                                        <img id="modal-img" class="img-fluid w-100 rounded-4" src="" alt="">
+                                        <p id="accuracy" class="accuracy mt-2 me-2 position-absolute top-0 end-0"><span id="accuracy-content">94</span>% accuracy</p>
                                     </div>
                                     <div class="text-center mt-4 px-3">
-                                        <h3>Hi, how are you doing today?</h3>
-                                        <p class="mt-3 px-3">I'm doing well, thank you for asking. How can I assist you today?</p>
+                                        <h3 id="about-heading">Hi, how are you doing today?</h3>
+                                        <p id="about-description" class="mt-3 px-3">I'm doing well, thank you for asking. How can I assist you today?</p>
                                     </div>
                                 </div>
                             </div>
