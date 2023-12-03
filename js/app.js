@@ -20,6 +20,8 @@ const displayModalContent = data => {
     document.getElementById('plan-3').innerText = data.pricing[2].price.substring(0, 10);
 
     document.getElementById('modal-img').src = data.image_link[0];
+
+    // Accuracy data has available then showing accuracy div  
     const accuracyContent = document.getElementById('accuracy-content');
     const getAccuracy = data.accuracy.score;
     const accuracy = document.getElementById('accuracy');
@@ -29,12 +31,14 @@ const displayModalContent = data => {
         accuracyContent.innerText = getAccuracy;
     }
 
-    document.getElementById('about-description').innerText = data.input_output_examples[0].input;
+    document.getElementById('about-heading').innerText = data.input_output_examples[0].input;
     document.getElementById('about-description').innerText = data.input_output_examples[0].output;
 
+    // Features data showing on UI
     const features = data.features
     const featureContainer = document.getElementById('features-container');
     featureContainer.innerText = '';
+
     for(const feature in features){
         const featureContent = features[feature].feature_name;
         const li = document.createElement('li');
@@ -42,10 +46,11 @@ const displayModalContent = data => {
         featureContainer.appendChild(li);
     }
 
-
+    // Integrations data showing on UI
     const integrations = data.integrations;
     const integrationsContainer = document.getElementById('integrations');
     integrationsContainer.innerText = '';
+
     integrations.forEach(integration => {
         const li = document.createElement('li');
         li.innerText = integration;
@@ -60,15 +65,13 @@ const loadCard = cards => {
     const cardContainer = document.getElementById('card-container');
 
     cards.forEach( (card, i) => {
-        // console.log(i, card);
-        // console.log(card);
 
         // Image Status code check
 
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('col-md-6', 'col-lg-4', 'd-flex', 'align-items-stretch');
         cardDiv.innerHTML = `
-            <div class="card p-4">
+            <div class="card p-4 w-100">
             <img class="img-fluid rounded-4 card-img-top card-img" src="${card.image}" alt="...">
             <div class="card-body px-0">
             <h5 class="card-title text-black fw-semibold fs-4">Features</h5>
