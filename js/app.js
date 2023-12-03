@@ -1,8 +1,8 @@
-const dataLoad = async() => {
+const dataLoad = async(dataLimit) => {
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
     const res = await fetch(url);
     const data = await res.json();
-    loadCard(data.data.tools);
+    loadCard(data.data.tools, dataLimit);
 }
 
 const dataLoadById = async id => {
@@ -61,9 +61,20 @@ const displayModalContent = data => {
 }
 
 
-const loadCard = cards => {
-    const cardContainer = document.getElementById('card-container');
+const loadCard = (cards, dataLimit) => {
+    console.log(dataLimit);
 
+    const showMore = document.getElementById('show-more');
+    if(dataLimit && cards.length > 6){
+        cards = cards.slice(0 , 6);
+        showMore.classList.remove('d-none')
+    }
+    else{
+        showMore.classList.add('d-none')
+    }
+    
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerText = '';
     cards.forEach( (card, i) => {
 
         const cardDiv = document.createElement('div');
@@ -111,5 +122,9 @@ const loadCard = cards => {
     spinner.classList.add('d-none');
 }
 
+document.getElementById('show-more').addEventListener('click', function(){
+    dataLoad()
+})
 
-dataLoad()
+
+dataLoad(6)
