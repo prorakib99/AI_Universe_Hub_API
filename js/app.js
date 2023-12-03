@@ -10,10 +10,11 @@ const dataLoadById = async id => {
     const res = await fetch(url);
     const data = await res.json();
     displayModalContent(data.data);
+
 }
 
 const displayModalContent = data => {
-    console.log(data);
+
     document.getElementById('card-description').innerText = data.description;
     document.getElementById('plan-1').innerText = data.pricing[0].price.substring(0, 10);
     document.getElementById('plan-2').innerText = data.pricing[1].price.substring(0, 10);
@@ -61,12 +62,9 @@ const displayModalContent = data => {
 
 
 const loadCard = cards => {
-    // console.log(cards);
     const cardContainer = document.getElementById('card-container');
 
     cards.forEach( (card, i) => {
-
-        // Image Status code check
 
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('col-md-6', 'col-lg-4', 'd-flex', 'align-items-stretch');
@@ -108,6 +106,9 @@ const loadCard = cards => {
         }
 
     });
+
+    const spinner = document.getElementById('spinner');
+    spinner.classList.add('d-none');
 }
 
 
