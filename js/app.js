@@ -62,8 +62,6 @@ const displayModalContent = data => {
 
 
 const loadCard = (cards, dataLimit) => {
-    console.log(dataLimit);
-
     const showMore = document.getElementById('show-more');
     if(dataLimit && cards.length > 6){
         cards = cards.slice(0 , 6);
@@ -77,6 +75,7 @@ const loadCard = (cards, dataLimit) => {
     cardContainer.innerText = '';
     cards.forEach( (card, i) => {
 
+        // Loop createElement dynamically loaded
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('col-md-6', 'col-lg-4', 'd-flex', 'align-items-stretch');
         cardDiv.innerHTML = `
@@ -107,6 +106,7 @@ const loadCard = (cards, dataLimit) => {
 
         cardContainer.appendChild(cardDiv);
 
+        // Feature list append
         const features = card.features
         const featureList = document.querySelector(`.feature-list-${i}`);
         for(const feature of features){
@@ -115,7 +115,6 @@ const loadCard = (cards, dataLimit) => {
             li.innerText = feature;
             featureList.appendChild(li);
         }
-
     });
 
     const spinner = document.getElementById('spinner');
@@ -123,8 +122,8 @@ const loadCard = (cards, dataLimit) => {
 }
 
 document.getElementById('show-more').addEventListener('click', function(){
-    dataLoad()
+    dataLoad();
 })
 
 
-dataLoad(6)
+dataLoad(6);
